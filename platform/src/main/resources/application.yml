@@ -1,3 +1,13 @@
 quarkus:
   http:
     port: 8082
+  generate-code:
+    grpc:
+      scan-for-proto: com.zhqn:common
+  grpc:
+    clients:
+      shop:
+        host: 192.168.48.141
+        port: 31569
+    server:
+      port: 9092
