@@ -8,7 +8,7 @@ RUN mvn clean package -Pnative -pl common,platform -Dmaven.test.skip=true
 ## Stage 2 : create the docker final image
 FROM quay.io/quarkus/quarkus-micro-image:1.0
 WORKDIR /work/
-RRUN mkdir /work/config
+RUN mkdir /work/config
 COPY --from=build /code/platform/target/*-runner /work/application
 
 # set up permissions for user `1001`

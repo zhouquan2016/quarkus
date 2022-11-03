@@ -98,4 +98,35 @@
       </plugin>
     </plugins>
   </build>
+  <!--<repositories>
+    <repository>
+      <id>aliyun</id>
+      <name>aliyun</name>
+&lt;!&ndash;      <url>https://repo.huaweicloud.com/repository/maven/</url>&ndash;&gt;
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>public</id>
+      <name>aliyun</name>
+&lt;!&ndash;      <url>https://repo.huaweicloud.com/repository/maven/</url>&ndash;&gt;
+      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
+
+  </pluginRepositories>-->
 </project>
