@@ -13,7 +13,7 @@ public class GreetService implements Greeter {
 
     @Override
     public Uni<HelloReply> sayHello(HelloRequest request) {
-        log.info("hello request:{}", request.toString());
+        log.info("has type:{}", request.hasType());
         return Uni.createFrom().item(HelloReply.newBuilder().setMessage("hello").setResultCode(100).build());
     }
 }

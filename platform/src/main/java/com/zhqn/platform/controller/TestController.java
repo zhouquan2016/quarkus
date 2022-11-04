@@ -25,8 +25,9 @@ public class TestController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public UserVO test() {
-        Uni<HelloReply> helloReplyUni = greeter.sayHello(HelloRequest.newBuilder().build());
-        HelloReply helloReply = helloReplyUni.await().atMost(Duration.ofMinutes(1));
+        long a = 0;
+        Uni<HelloReply> helloReplyUni = greeter.sayHello(HelloRequest.newBuilder().setType(a).build());
+        HelloReply helloReply = helloReplyUni.await().atMost(Duration.ofSeconds(1));
         log.info(helloReply.toString());
         return new UserVO();
     }

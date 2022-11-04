@@ -7,7 +7,7 @@ quarkus:
   grpc:
     clients:
       shop:
-        host: 192.168.48.141
-        port: 31569
+        host: localhost
+        port: 9091
     server:
       port: 9092

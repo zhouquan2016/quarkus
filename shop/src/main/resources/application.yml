@@ -4,6 +4,7 @@ quarkus:
   generate-code:
     grpc:
       scan-for-proto: com.zhqn:common
+
   grpc:
     server:
       port: 9091
