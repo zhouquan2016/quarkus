@@ -6,11 +6,11 @@
   <artifactId>quarkus</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <modules>
+  <!--<modules>
     <module>shop</module>
     <module>common</module>
     <module>platform</module>
-  </modules>
+  </modules>-->
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
@@ -98,35 +98,22 @@
       </plugin>
     </plugins>
   </build>
-  <!--<repositories>
-    <repository>
-      <id>aliyun</id>
-      <name>aliyun</name>
-&lt;!&ndash;      <url>https://repo.huaweicloud.com/repository/maven/</url>&ndash;&gt;
-      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
+  <profiles>
+    <profile>
+      <id>platform</id>
+      <modules>
+        <module>common</module>
+        <module>platform</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>shop</id>
+      <modules>
+        <module>common</module>
+        <module>shop</module>
+      </modules>
+    </profile>
+  </profiles>
 
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>public</id>
-      <name>aliyun</name>
-&lt;!&ndash;      <url>https://repo.huaweicloud.com/repository/maven/</url>&ndash;&gt;
-      <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </pluginRepository>
 
-  </pluginRepositories>-->
 </project>
