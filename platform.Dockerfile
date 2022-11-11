@@ -3,7 +3,8 @@ FROM registry.cn-hangzhou.aliyuncs.com/zhqn/quarkus-maven:java17 AS build
 USER quarkus
 WORKDIR /code
 COPY --chown=quarkus:quarkus . /code/
-RUN mvn clean package -Pnative -Pplatform -Dmaven.test.skip=true
+
+RUN --mount=type=cache,target=/root/.m2 mvn clean package -Pnative -Pplatform -Dmaven.test.skip=true
 
 ## Stage 2 : create the docker final image
 FROM quay.io/quarkus/quarkus-micro-image:1.0
