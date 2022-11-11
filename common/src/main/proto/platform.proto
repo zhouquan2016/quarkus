@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zhqn.common.platform";
+option java_outer_classname = "PlatformProto";
+
+package platform;
+
+service FileService {
+  //上传文件
+  rpc upload(stream UploadRequest) returns (UploadResponse) {}
+  //下载文件
+  rpc download(DownloadRequest) returns (stream DownloadResponse) {};
+}
+message UploadRequest {
+  oneof data {
+    //文件名
+    string filename = 1;
+    //字节
+    bytes contents = 2;
+  }
+}
+
+message UploadResponse {
+  //上传成功
+  bool success = 1;
+  //失败原因
+  string error = 2;
+  //文件号码
+  string fileNo = 3;
+}
+
+message DownloadRequest {
+  //文件号码
+  string fileNo = 1;
+}
+
+message DownloadResponse {
+  bytes contents = 1;
+}

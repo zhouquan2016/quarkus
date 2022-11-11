@@ -8,3 +8,12 @@ quarkus:
   grpc:
     server:
       port: 9091
+    clients:
+      platform:
+        host: localhost
+        port: 9092
+
+  configuration:
+    build-time-mismatch-at-runtime: fail
+shop:
+  upload-path: d:/testupload
