@@ -1,4 +1,4 @@
-FROM quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.2-java17 AS build
+FROM quay.io/quarkus/ubi-quarkus-graalvmce-builder-image:22.2-java17
 USER quarkus
 WORKDIR /home/quarkus/code/
 
