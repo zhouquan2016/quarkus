@@ -1,5 +1,5 @@
 ## Stage 1 : build with maven builder image with native capabilities
-FROM registry.cn-hangzhou.aliyuncs.com/zhqn/quarkus-maven:java17 AS build
+FROM registry.cn-hangzhou.aliyuncs.com/zhqn/quarkus-base:1.0.0 AS build
 USER quarkus
 WORKDIR /code
 COPY --chown=quarkus:quarkus . /code/
