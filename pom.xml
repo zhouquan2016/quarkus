@@ -106,11 +106,18 @@
   </build>
   <profiles>
     <profile>
+      <id>all</id>
+      <modules>
+        <module>common</module>
+        <module>platform</module>
+        <module>shop</module>
+      </modules>
+    </profile>
+    <profile>
       <id>platform</id>
       <modules>
-        <module>platform</module>
         <module>common</module>
-
+        <module>platform</module>
       </modules>
     </profile>
     <profile>
