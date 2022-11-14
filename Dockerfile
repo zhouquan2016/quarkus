@@ -8,4 +8,5 @@ RUN tar xvf ~/maven/*.gz --strip-component=1 -C ~/maven
 RUN rm -f ~/maven/*.gz
 RUN ~/maven/bin/mvn  package -Pall -Pnative  -Dmaven.test.skip=true
 RUN rm -rf /code/*
-ENV path $path:/opt/maven/bin
+ENV MAVAN_HOME ~/maven
+ENV PATH $PATH:$MAVAN_HOME/bin
