@@ -3,8 +3,8 @@ FROM registry.cn-hangzhou.aliyuncs.com/zhqn/quarkus-base:1.0.0 AS build
 USER quarkus
 WORKDIR /code
 COPY --chown=quarkus:quarkus . /code/
-RUN rm -rf /platform/src/main/resources/resources/index.html
-RUN rm -f /platform/src/main/resources/application*.yml
+RUN rm -rf /code/shop/src/main/resources/resources/index.html
+RUN rm -f /code/shop/src/main/resources/application*.yml
 RUN mvn clean package -Pnative -Pshop -Dmaven.test.skip=true
 
 ## Stage 2 : create the docker final image
