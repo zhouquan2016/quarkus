@@ -5,6 +5,6 @@ COPY --chown=quarkus:quarkus . /code/
 RUN mvn clean package -Pplatform -Dquarkus.swagger-ui.always-include=true -Dmaven.test.skip=true
 
 FROM openjdk:20-slim-buster as runtime
-WORKDIR /quarkus
-COPY --from=build /code/platform/target/quarkus-app/quarkus-run.jar /quarkus/run.jar
-ENTRYPOINT ["java", "-jar", "/quarkus/run.jar"]
+WORKDIR /quarkus-app
+COPY --from=build /code/platform/target/quarkus-app/ /quarkus-app/
+ENTRYPOINT ["java", "-jar", "/quarkus-run.jar"]
