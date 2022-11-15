@@ -18,6 +18,7 @@ RUN chmod 775 /work /work/application \
   && chown -R 1001:root /work
 
 EXPOSE 8082
+EXPOSE 9092
 USER 1001
 
 CMD ["./application"]
