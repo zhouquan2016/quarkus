@@ -10,7 +10,6 @@ RUN tar xvf $MAVEN_HOME/*.gz --strip-component=1 -C $MAVEN_HOME
 RUN rm -f $MAVEN_HOME/*.gz
 RUN sed -e 's|<mirrors>|<mirrors><mirror><id>huawei</id><name>huawei</name><url>https://mirrors.huaweicloud.com/repository/maven/</url><mirrorOf>*</mirrorOf></mirror>|' /home/quarkus/maven/conf/settings.xml > /home/quarkus/maven/conf/back.xml
 RUN mv /home/quarkus/maven/conf/back.xml /home/quarkus/maven/conf/settings.xml
-RUN cat /home/quarkus/maven/conf/settings.xml
 ENV MAVEN_HOME=$MAVEN_HOME
 ENV PATH=$PATH:$MAVEN_HOME/bin
 
