@@ -33,6 +33,7 @@ public class TestController {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.TEXT_PLAIN)
     public Uni<UploadResponse> upload( UploadQuery query) {
+        System.out.println("-------------测试-------------");
         String filename = query.fileName;
 
         if (StringUtil.isNullOrEmpty(filename)) {
