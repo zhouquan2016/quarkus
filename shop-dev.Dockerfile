@@ -7,4 +7,4 @@ RUN mvn clean package -Pshop -Dquarkus.swagger-ui.always-include=true -Dmaven.te
 FROM openjdk:20-slim-buster as runtime
 WORKDIR /quarkus-app
 COPY --from=build /code/shop/target/quarkus-app/ /quarkus-app/
-ENTRYPOINT ["java", "-jar", "/quarkus-run.jar"]
+ENTRYPOINT ["java", "-jar", "quarkus-run.jar"]
