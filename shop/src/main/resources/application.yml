@@ -15,5 +15,7 @@ quarkus:
 
   configuration:
     build-time-mismatch-at-runtime: fail
+  config:
+    locations:
 shop:
   upload-path: d:/testupload

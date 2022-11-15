@@ -4,7 +4,6 @@ quarkus:
     limits:
       max-body-size: 1000M
     host-enabled: true
-    host: localhost
   generate-code:
     grpc:
       scan-for-proto: com.zhqn:common
@@ -14,10 +13,9 @@ quarkus:
         host: localhost
         port: 9091
       platform:
-        host: localhost
         port: 9092
+        host: localhost
     server:
-      host: localhost
       port: 9092
 platform:
   upload-path: d:/testupload

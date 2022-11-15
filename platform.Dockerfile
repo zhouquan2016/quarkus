@@ -21,4 +21,4 @@ EXPOSE 8082
 EXPOSE 9092
 USER 1001
 
-CMD ["./application"]
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0", "-Dquarkus.config.locations=/work/config"]
