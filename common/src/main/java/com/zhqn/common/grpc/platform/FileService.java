@@ -1,8 +1,8 @@
 package com.zhqn.common.grpc.platform;
 
-import com.zhqn.common.platform.UploadResponse;
 import io.smallrye.mutiny.Uni;
 
+import javax.ws.rs.core.Response;
 import java.io.File;
 import java.io.InputStream;
 
@@ -14,12 +14,21 @@ public interface FileService {
      * @param is 文件流不会关闭
      * @return 异步结果
      */
-    Uni<UploadResponse> uploadFile(String fileName, InputStream is);
+    Uni<BaseResponse<String>> uploadFile(String fileName, InputStream is);
 
     /**
      * 上传文件
      * @param file
      * @return
      */
-    Uni<UploadResponse> uploadFile(File file);
+    Uni<BaseResponse<String>> uploadFile(File file);
+
+    /**
+     * 异步地下载文件
+     * @param fileNo 文件编码
+     * @return 文件
+     */
+    File downloadFile(String fileNo) ;
+
+    Response downloadFile2(String fileNo);
 }

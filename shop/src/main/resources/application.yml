@@ -1,6 +1,8 @@
 quarkus:
   http:
     port: 8081
+    limits:
+      max-body-size: 1000m
   generate-code:
     grpc:
       scan-for-proto: com.zhqn:common
@@ -12,6 +14,8 @@ quarkus:
       platform:
         host: localhost
         port: 9092
+  #        host: 192.168.48.135
+#        port: 32459
 
   configuration:
     build-time-mismatch-at-runtime: fail
