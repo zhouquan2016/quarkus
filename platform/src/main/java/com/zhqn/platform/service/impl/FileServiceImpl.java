@@ -6,10 +6,14 @@ import com.zhqn.platform.service.FileService;
 import io.netty.util.internal.StringUtil;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -18,6 +22,11 @@ public class FileServiceImpl implements FileService {
     @Inject
     PlatformProperties platformProperties;
 
+    @Produces
+    public List<String> names() {
+        System.out.println("xxxxx");
+        return Arrays.asList("Andy", "Bob", "Cindy");
+    }
     @Override
     public String upload(UploadQuery query) {
         try {
@@ -86,7 +95,7 @@ public class FileServiceImpl implements FileService {
             }
         };
         return Response.ok(streamingOutput)
-                .header( "Content-Disposition", "attachment; filename=\"" + file.getName() + "\"" )
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"" )
                 .header("Content-Length", file.length())
                 .build();
     }

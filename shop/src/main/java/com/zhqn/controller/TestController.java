@@ -22,6 +22,7 @@ public class TestController {
     @Inject
     FileService fileService;
 
+
     @ServerExceptionMapper
     public Response exceptionHandler(Exception e) {
         log.error("全局异常", e);

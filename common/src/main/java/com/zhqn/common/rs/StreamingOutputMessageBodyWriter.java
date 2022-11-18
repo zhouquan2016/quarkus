@@ -1,4 +1,4 @@
-package com.zhqn.controller;
+package com.zhqn.common.rs;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;

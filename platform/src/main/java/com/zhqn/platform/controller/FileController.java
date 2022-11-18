@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("/file")
 @Produces(MediaType.APPLICATION_JSON)
@@ -14,6 +15,9 @@ public class FileController {
 
     @Inject
     FileService fileService;
+
+    @Inject
+    List<String> names;
 
     @Path("/upload")
     @POST
@@ -27,5 +31,11 @@ public class FileController {
     @Consumes(MediaType.TEXT_PLAIN)
     public Uni<Response> download(@QueryParam("fileNo") String fileNo) {
         return Uni.createFrom().item(fileService.download(fileNo));
+    }
+
+    @Path("/getName")
+    @GET
+    public List<String> getName() {
+        return names;
     }
 }

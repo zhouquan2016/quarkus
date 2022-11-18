@@ -17,5 +17,15 @@ quarkus:
         host: localhost
     server:
       port: 9092
+  datasource:
+    default:
+      username: quarkus
+      password: quarkus
+      db-kind: mysql
+      jdbc:
+        driver: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.48.135:32100/quarkus
+        validation-query-sql: select 1
+
 platform:
   upload-path: d:/testupload

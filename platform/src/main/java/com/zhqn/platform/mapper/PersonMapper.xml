@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhqn.platform.mapper.PersonMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhqn.platform.domain.PersonEntity">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="birthDate" column="birth_date" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,birth_date
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from person
+        where  id = #{id,jdbcType=BIGINT} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from person
+        where  id = #{id,jdbcType=BIGINT} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zhqn.platform.domain.PersonEntity" useGeneratedKeys="true">
+        insert into person
+        ( id,name,birth_date
+        )
+        values (#{id,jdbcType=BIGINT},#{name,jdbcType=VARCHAR},#{birthDate,jdbcType=DATE}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zhqn.platform.domain.PersonEntity" useGeneratedKeys="true">
+        insert into person
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="name != null">name,</if>
+                <if test="birthDate != null">birth_date,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=BIGINT},</if>
+                <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+                <if test="birthDate != null">#{birthDate,jdbcType=DATE},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhqn.platform.domain.PersonEntity">
+        update person
+        <set>
+                <if test="name != null">
+                    name = #{name,jdbcType=VARCHAR},
+                </if>
+                <if test="birthDate != null">
+                    birth_date = #{birthDate,jdbcType=DATE},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zhqn.platform.domain.PersonEntity">
+        update person
+        set 
+            name =  #{name,jdbcType=VARCHAR},
+            birth_date =  #{birthDate,jdbcType=DATE}
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+</mapper>
